@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JavaScript Tag/Concept Quiz Game</title>
+<title>HTML Tag Quiz Game - Moving Cloud</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -58,66 +58,71 @@
 </head>
 <body>
 
-<h1>JavaScript Concept Quiz Game</h1>
+<h1>HTML Tag Quiz Game</h1>
 <div id="scoreContainer">Score: <span id="score">0</span></div>
-<p id="question">Click the correct JavaScript concept before it reaches the top!</p>
+<p id="question">Click the correct HTML tag before it reaches the top!</p>
 
 <div id="options"></div>
 <p id="gameOver">Game Over!</p>
 
 <script>
 const quizData = [
-  {question:"Declare a variable that can change","correct":"let","options":["let","const","var","function"]},
-  {question:"Declare a constant variable","correct":"const","options":["const","let","var","function"]},
-  {question:"Function keyword","correct":"function","options":["function","fun","method","const"]},
-  {question:"Strict equality check","correct":"===","options":["===","==","=","!=="]},
-  {question:"Single-line comment","correct":"//","options":["//","/*","<!--","#"]},
-  {question:"Array declaration","correct":"[]","options":["[]","{}","()","<>"]},
-  {question:"Object declaration","correct":"{}","options":["{}","[]","()","<>"]},
-  {question:"Arrow function","correct":"=>","options":["=>","->","->>","=>>"]},
-  {question:"Parse string to int","correct":"parseInt","options":["parseInt","Number","parseFloat","String"]},
-  {question:"Parse string to float","correct":"parseFloat","options":["parseFloat","parseInt","Number","String"]},
-  {question:"Check type","correct":"typeof","options":["typeof","instanceof","type","class"]},
-  {question:"Add element to end of array","correct":"push","options":["push","pop","shift","unshift"]},
-  {question:"Remove element from end of array","correct":"pop","options":["pop","push","shift","unshift"]},
-  {question:"Remove element from start of array","correct":"shift","options":["shift","pop","push","unshift"]},
-  {question:"Add element to start of array","correct":"unshift","options":["unshift","push","pop","shift"]},
-  {question:"Return substring","correct":"substring","options":["substring","substr","slice","split"]},
-  {question:"Split string into array","correct":"split","options":["split","slice","substring","join"]},
-  {question:"Join array into string","correct":"join","options":["join","split","concat","push"]},
-  {question:"Execute code after delay","correct":"setTimeout","options":["setTimeout","setInterval","delay","wait"]},
-  {question:"Execute code repeatedly","correct":"setInterval","options":["setInterval","setTimeout","repeat","loop"]},
-  {question:"Convert value to string","correct":"String","options":["String","Number","parseInt","toString"]},
-  {question:"Convert value to number","correct":"Number","options":["Number","String","parseInt","parseFloat"]},
-  {question:"Check if variable is array","correct":"Array.isArray","options":["Array.isArray","typeof","instanceof","Array.check"]},
-  {question:"JavaScript strict mode","correct":"use strict","options":["use strict","strict","enable strict","strict mode"]},
-  {question:"Remove whitespace from both ends","correct":"trim","options":["trim","slice","substring","replace"]},
-  {question:"Find index in array","correct":"indexOf","options":["indexOf","find","search","includes"]},
-  {question:"Check if array includes value","correct":"includes","options":["includes","indexOf","find","has"]},
-  {question:"Return first element that matches","correct":"find","options":["find","filter","map","reduce"]},
-  {question:"Filter array","correct":"filter","options":["filter","map","find","reduce"]},
-  {question:"Transform array","correct":"map","options":["map","filter","reduce","forEach"]},
-  {question:"Reduce array to single value","correct":"reduce","options":["reduce","map","filter","forEach"]},
-  {question:"Loop through array","correct":"forEach","options":["forEach","map","for","while"]},
-  {question:"Check variable is undefined","correct":"undefined","options":["undefined","null","NaN","false"]},
-  {question:"Check variable is null","correct":"null","options":["null","undefined","NaN","false"]},
-  {question:"Check NaN","correct":"isNaN","options":["isNaN","NaN","Number.isNaN","typeof"]},
-  {question:"Logical AND","correct":"&&","options":["&&","||","&","|"]},
-  {question:"Logical OR","correct":"||","options":["||","&&","|","&"]},
-  {question:"Logical NOT","correct":"!","options":["!","!!","not","~"]},
-  {question:"Ternary operator","correct":"? :","options":["? :", "if else","switch","??"]},
-  {question:"Convert number to string","correct":"toString","options":["toString","String","Number","parseInt"]},
-  {question:"Convert string to number","correct":"Number","options":["Number","parseInt","parseFloat","String"]},
-  {question:"Create promise","correct":"Promise","options":["Promise","Async","Then","Callback"]},
-  {question:"Async function keyword","correct":"async","options":["async","await","then","function"]},
-  {question:"Await keyword","correct":"await","options":["await","async","then","resolve"]},
-  {question:"Create date object","correct":"Date","options":["Date","Time","Moment","new Date()"]},
-  {question:"JSON parse string","correct":"JSON.parse","options":["JSON.parse","JSON.stringify","eval","parseJSON"]},
-  {question:"JSON stringify object","correct":"JSON.stringify","options":["JSON.stringify","JSON.parse","toString","JSON.encode"]},
-  {question:"Throw error","correct":"throw","options":["throw","try","catch","raise"]},
-  {question:"Try-catch block","correct":"try","options":["try","catch","finally","throw"]},
-  {question:"Catch error","correct":"catch","options":["catch","try","finally","throw"]},
-  {question:"Finally block","correct":"finally","options":["finally","try","catch","end"]}
+  {"question":"Paragraph text","correct":"p","options":["p","div","span","h1"]},
+  {"question":"Main heading","correct":"h1","options":["h1","h2","p","span"]},
+  {"question":"Bold text","correct":"b","options":["b","i","u","em"]},
+  {"question":"Italic text","correct":"i","options":["i","b","u","em"]},
+  {"question":"Underline text","correct":"u","options":["u","i","b","em"]},
+  {"question":"Insert an image","correct":"img","options":["img","src","picture","figure"]},
+  {"question":"Unordered list","correct":"ul","options":["ul","ol","li","list"]},
+  {"question":"Ordered list","correct":"ol","options":["ol","ul","li","div"]},
+  {"question":"List item","correct":"li","options":["li","ul","ol","div"]},
+  {"question":"Hyperlink","correct":"a","options":["a","link","href","url"]},
+  {"question":"Division section","correct":"div","options":["div","section","span","article"]},
+  {"question":"Section of content","correct":"section","options":["section","div","article","span"]},
+  {"question":"Form container","correct":"form","options":["form","input","div","fieldset"]},
+  {"question":"Text input","correct":"input","options":["input","textarea","button","select"]},
+  {"question":"Password input","correct":"input","options":["input","password","textarea","button"]},
+  {"question":"Email input","correct":"input","options":["input","textarea","form","label"]},
+  {"question":"Checkbox input","correct":"input","options":["input","checkbox","radio","button"]},
+  {"question":"Radio button","correct":"input","options":["input","radio","checkbox","button"]},
+  {"question":"Submit button","correct":"input","options":["input","button","submit","form"]},
+  {"question":"Textarea field","correct":"textarea","options":["textarea","input","form","label"]},
+  {"question":"Dropdown menu","correct":"select","options":["select","input","option","form"]},
+  {"question":"Table container","correct":"table","options":["table","tr","td","th"]},
+  {"question":"Table row","correct":"tr","options":["tr","td","th","table"]},
+  {"question":"Table header","correct":"th","options":["th","tr","td","table"]},
+  {"question":"Table cell","correct":"td","options":["td","tr","th","table"]},
+  {"question":"Header of webpage","correct":"header","options":["header","footer","nav","section"]},
+  {"question":"Footer of webpage","correct":"footer","options":["footer","header","nav","section"]},
+  {"question":"Navigation menu","correct":"nav","options":["nav","div","section","menu"]},
+  {"question":"Important text","correct":"strong","options":["strong","b","i","em"]},
+  {"question":"Emphasized text","correct":"em","options":["em","i","b","u"]},
+  {"question":"Line break","correct":"br","options":["br","hr","p","div"]},
+  {"question":"Horizontal rule","correct":"hr","options":["hr","br","div","section"]},
+  {"question":"Label for input","correct":"label","options":["label","input","form","span"]},
+  {"question":"Fieldset group","correct":"fieldset","options":["fieldset","form","div","section"]},
+  {"question":"Legend for fieldset","correct":"legend","options":["legend","fieldset","label","span"]},
+  {"question":"Inline text container","correct":"span","options":["span","div","p","section"]},
+  {"question":"Block text container","correct":"div","options":["div","span","p","section"]},
+  {"question":"Quote element","correct":"blockquote","options":["blockquote","q","cite","p"]},
+  {"question":"Short inline quote","correct":"q","options":["q","blockquote","cite","span"]},
+  {"question":"Cite source","correct":"cite","options":["cite","q","p","span"]},
+  {"question":"Audio element","correct":"audio","options":["audio","video","source","embed"]},
+  {"question":"Video element","correct":"video","options":["video","audio","source","embed"]},
+  {"question":"Embed element","correct":"embed","options":["embed","object","iframe","video"]},
+  {"question":"Object element","correct":"object","options":["object","embed","iframe","div"]},
+  {"question":"Iframe element","correct":"iframe","options":["iframe","embed","object","div"]},
+  {"question":"Meta tag","correct":"meta","options":["meta","link","script","title"]},
+  {"question":"Link CSS","correct":"link","options":["link","meta","script","style"]},
+  {"question":"Script JS","correct":"script","options":["script","style","link","meta"]},
+  {"question":"Internal CSS","correct":"style","options":["style","link","script","meta"]},
+  {"question":"Title of page","correct":"title","options":["title","h1","header","div"]},
+  {"question":"Document body","correct":"body","options":["body","html","div","section"]},
+  {"question":"HTML root element","correct":"html","options":["html","body","head","div"]},
+  {"question":"Head container","correct":"head","options":["head","body","html","section"]},
+  {"question":"Break word container","correct":"wbr","options":["wbr","br","span","div"]},
+  {"question":"Abbreviation","correct":"abbr","options":["abbr","acronym","span","i"]},
+  {"question":"Acronym","correct":"acronym","options":["acronym","abbr","span","i"]}
 ];
 
 let score = 0;
